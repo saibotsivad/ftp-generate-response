@@ -14,7 +14,7 @@ module.exports = function ftpGenerateResponse(responseNumber, lines, multiLinePr
 	var response
 
 	if (lines.length === 0) {
-		response = responseNumber.toString()
+		response = responseNumber.toString() + characterAfterLastLineCode
 	} else if (lines.length > 1) {
 		var firstLine = responseNumber + characterAfterFirstLineCode + lines.splice(0, 1)
 		var allLinesExceptLast = lines.splice(0, lines.length - 1)
