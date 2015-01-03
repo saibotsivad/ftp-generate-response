@@ -1,0 +1,22 @@
+{
+  "name": "ftp-generate-response",
+  "version": "0.0.1",
+  "description": "Generate RFC conforming response strings for an FTP server.",
+  "main": "generate.js",
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sdmp/ftp-generate-response.git"
+  },
+  "keywords": [ "ftp", "sdmp" ],
+  "author": "saibotsivad",
+  "license": "VOL",
+  "bugs": {
+    "url": "https://github.com/sdmp/ftp-generate-response/issues"
+  },
+  "devDependencies": {
+    "tape": "~3.0.3"
+  }
+}
