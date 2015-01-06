@@ -1,32 +1,31 @@
 // https://tools.ietf.org/html/rfc959#page-4
 var endOfLineSequence = '\r\n'
-  , characterAfterFirstLineCode = '-'
-  , characterAfterLastLineCode = ' '
+var characterAfterFirstLineCode = '-'
+var characterAfterLastLineCode = ' '
 
 module.exports = function ftpGenerateResponse(responseNumber, lines, multiLinePrepend) {
 	lines = lines || []
 	if (typeof lines === 'string') {
 		lines = [ lines ]
+	} else if (lines.length === 0) {
+		lines.push('')
 	}
 
 	multiLinePrepend = multiLinePrepend || ' '
 
-	var response
+	return addLineCodes(responseNumber, multiLinePrepend, lines).join(endOfLineSequence) + endOfLineSequence
+}
 
-	if (lines.length === 0) {
-		response = responseNumber.toString() + characterAfterLastLineCode
-	} else if (lines.length > 1) {
-		var firstLine = responseNumber + characterAfterFirstLineCode + lines.splice(0, 1)
-		var allLinesExceptLast = lines.splice(0, lines.length - 1)
-		var lastLine = responseNumber + characterAfterLastLineCode + lines.splice(0)
-		response = firstLine + endOfLineSequence
-			+ (allLinesExceptLast.length > 0 ? multiLinePrepend + allLinesExceptLast.join(endOfLineSequence + multiLinePrepend) + endOfLineSequence : '')
-			+ lastLine
-	} else {
-		response = response = responseNumber + characterAfterLastLineCode + lines[0]
-	}
-
-	response = response + endOfLineSequence
-
-	return response
+function addLineCodes(responseNumber, multiLinePrepend, lines) {
+	var first = 0
+	var last = lines.length - 1
+	return lines.map(function(line, index) {
+		if (index === last) {
+			return responseNumber + characterAfterLastLineCode + line
+		} else if (index === first) {
+			return responseNumber + characterAfterFirstLineCode + line
+		} else if (multiLinePrepend) {
+			return multiLinePrepend + line
+		}
+	})
 }
