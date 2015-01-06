@@ -2,6 +2,7 @@
 var endOfLineSequence = '\r\n'
 var characterAfterFirstLineCode = '-'
 var characterAfterLastLineCode = ' '
+var defaultCharacterPrependingMultilines = '  '
 
 module.exports = function ftpGenerateResponse(responseNumber, lines, multiLinePrepend) {
 	lines = lines || []
@@ -11,7 +12,7 @@ module.exports = function ftpGenerateResponse(responseNumber, lines, multiLinePr
 		lines.push('')
 	}
 
-	multiLinePrepend = multiLinePrepend || ' '
+	multiLinePrepend = multiLinePrepend || defaultCharacterPrependingMultilines
 
 	return addLineCodes(responseNumber, multiLinePrepend, lines).join(endOfLineSequence) + endOfLineSequence
 }
