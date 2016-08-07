@@ -1,6 +1,6 @@
 {
   "name": "ftp-generate-response",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Generate RFC conforming response strings for an FTP server.",
   "main": "generate.js",
   "scripts": {
