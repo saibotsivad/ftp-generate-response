@@ -39,7 +39,7 @@ test('when lines is an array with two entries', function(t) {
 
 test('when lines is an array with three entries', function(t) {
 	var out = generate(100, ['first', 'second', 'third'])
-	t.equals(out, '100-first\r\n second\r\n100 third\r\n')
+	t.equals(out, '100-first\r\n  second\r\n100 third\r\n')
 	t.ok(validate(out))
 	t.end()
 })
