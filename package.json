@@ -19,7 +19,7 @@
     "url": "https://github.com/saibotsivad/ftp-generate-response/issues"
   },
   "devDependencies": {
-    "tape": "~3.0.3",
-    "ftp-validate-response": "^0.0.4"
+    "tape": "~4.7.0",
+    "ftp-validate-response": "^0.0.6"
   }
 }
