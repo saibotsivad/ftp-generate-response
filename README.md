@@ -1,5 +1,7 @@
 # ftp-generate-response
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/saibotsivad/ftp-generate-response.svg)](https://greenkeeper.io/)
+
 Generate RFC conforming strings for an FTP server connection.
 
 Install the normal `node` way.
